@@ -4,6 +4,10 @@
 
 MajesticWebCreator is a powerful tool for creating stunning websites effortlessly. Whether you're building a personal blog, a professional portfolio, or any other website, MajesticWebCreator has you covered. You can utilize it as an API or through our website. Please follow the instructions below to get started.
 
+## Get Started
+
+### Go To Config.json And Edit It Also Put Auth Link In Index.html Too Then Run
+
 ## Usage
 
 ### API Usage
