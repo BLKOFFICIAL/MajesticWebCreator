@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const websiteLinkDiv = document.getElementById("websiteUrlDiv");
   const contactLinkDiv = document.getElementById("contactDiv");
 
+
   // Function to show both Twitter and Website URL divs
   function discord() {
     twitterLinkDiv.style.display = "block";
@@ -38,27 +39,26 @@ document.addEventListener("DOMContentLoaded", function () {
   registrationForm.addEventListener("submit", function (e) {
     e.preventDefault(); // Prevent form submission
 
-    // Get form values
     const theme = themeSelect.value;
-    const profileUrl = document.getElementById("profile").value;
-    const name = document.getElementById("name").value;
-    const bio = document.getElementById("bio").value;
-    const youtubeLink = document.getElementById("youtubeLink").value; // Use "ytLink" here
-    const githubLink = document.getElementById("githubLink").value;
-    const twitterLink = document.getElementById("twitterUrl").value;
-    const websiteLink = document.getElementById("websiteUrl").value;
+const profileUrl = document.getElementById("profile").value;
+const name = document.getElementById("name").value;
+const bio = document.getElementById("bio").value; // Corrected
+const youtubeLink = document.getElementById("youtubeLink").value;
+const githubLink = document.getElementById("githubLink").value;
+const twitterLink = document.getElementById("twitterUrl").value;
+const websiteLink = document.getElementById("websiteUrl").value;
 
-    // Create a data object to send in the request
-    const data = {
-      theme,
-      name,
-      bio,
-      profileUrl,
-      youtubeLink, // Use the correct variable name here
-      githubLink,
-      twitterLink,
-      websiteLink,
-    };
+// Create a data object to send in the request
+const data = {
+  theme,
+  name,
+  bio, // Corrected
+  profileUrl,
+  youtubeLink,
+  githubLink,
+  twitterLink,
+  websiteLink,
+};
 
     // Include the "contact" field conditionally
     if (theme === "discord") {
@@ -72,9 +72,9 @@ document.addEventListener("DOMContentLoaded", function () {
     // Define the API endpoint based on the selected theme
     let apiEndpoint;
     if (theme === "discord") {
-      apiEndpoint = "https://delta.teamblk.xyz/api/generate-discord-html";
+      apiEndpoint = "https://powerlessmajesticoutput.info445.repl.co/api/generate-discord-html";
     } else {
-      apiEndpoint = "https://delta.teamblk.xyz/api/generate-profile-html";
+      apiEndpoint = "https://powerlessmajesticoutput.info445.repl.co/api/generate-profile-html";
     }
 
     // Send a POST request using Axios to the appropriate API endpoint
