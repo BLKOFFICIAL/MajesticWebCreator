@@ -6,7 +6,29 @@ MajesticWebCreator is a powerful tool for creating stunning websites effortlessl
 
 ## Get Started
 
+### Go On With Replit
+
 ### Go To Config.json And Edit It Also Put Auth Link In Index.html Too Then Run
+
+
+```json
+{
+  "server": {
+    "port": 3000,
+    "url": "https://powerlessmajesticoutput.info445.repl.co"
+  },
+  "login": {
+    "auth": "https://discord.com/api/oauth2/authorize?client_id=1156854468529369109&redirect_uri=https%3A%2F%2Fpowerlessmajesticoutput.info445.repl.co%2Fregister&response_type=code&scope=identify%20email%20guilds%20guilds.join"
+  }
+}
+```
+
+
+
+
+## Index.html Preview
+
+[![Preview](https://cdn.discordapp.com/attachments/1158747473964171364/1162027213995131001/image.png?ex=653a712d&is=6527fc2d&hm=77e954a074cf9222d0c77a7afc3a40ab044bc78fa5c3c814e09064bf61f46d8b&)](https://delta.teamblk.xyz/)
 
 ## Usage
 
