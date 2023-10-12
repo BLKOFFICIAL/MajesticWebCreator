@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Page</title>
+    <link rel="stylesheet" type="text/css" href="/register.css">
+  <style>
+        body {
+            background-image: url("backg.gif"); /* Replace with the path to your image */
+            background-size: 100% auto; /* Zoom slightly in width, and auto for height */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+    background-attachment: fixed; /* Keeps the background fixed while scrolling */
+    background-position: center center; /* Keeps the background fixed while scrolling */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Registration Form</h1>
+        <form action="/register" method="post">
+            <label for="theme">Select Theme:</label><br>
+            <select id="theme" name="theme">
+                <option value="none">None</option>
+                <option value="discord">Discord</option>
+                <option value="normal">Normal</option>
+            </select><br>
+
+            <label for="profile">Profile Url</label><br>
+            <input type="url" id="profile" name="profile" required><br>
+
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name" required><br>
+
+            <label for="bio">Bio:</label><br>
+            <textarea id="bio" name="bio" rows="4" cols="40" required></textarea><br>
+
+            <label for="ytLink">YouTube Link:</label><br>
+            <input type="url" id="youtubeLink" name="youtubeLink" required><br>
+
+            <label for="githubLink">GitHub Link:</label><br>
+            <input type="url" id="githubLink" name="githubLink" required><br>
+
+            <div id="twitterUrlDiv" class="hidden">
+                <label for="twitterUrl">Twitter URL:</label><br>
+                <input type="url" id="twitterUrl" name="twitterUrl"><br>
+            </div>
+
+            <div id="websiteUrlDiv" class="hidden">
+                <label for="websiteUrl">Website URL:</label><br>
+                <input type="url" id="websiteUrl" name="websiteUrl"><br>
+            </div>
+
+            <div id="contactDiv" class="hidden">
+                <label for="websiteUrl">Contact URL:</label><br>
+                <input type="url" id="contact" name="contact"><br>
+            </div>
+
+            <input type="submit" value="Register">
+
+        </form>
+        
+        <!-- Success message code -->
+        <div class="img">
+            <img src="img/wave.png">
+        </div>
+        <!-- End of success message code -->
+        
+    </div>
+    <script src="registerr.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+
+    // Function to extract query parameters from the URL
+    function getQueryParameter(name) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(name);
+    }
+
+    // Extract the "code" parameter from the URL
+    const code = getQueryParameter("code");
+
+    if (code) {
+        // Now, you can make a request to Discord's API to exchange the code for the user's access token
+        const clientId = "1156854468529369109"; // Replace with your Discord application's client ID
+        const clientSecret = "2Oa87Ewzj1JsbBSNFtrie_pNH93Gyy-j"; // Replace with your Discord application's client secret
+        const redirectUri = "https://test.teamblk.xyz/register"; // Replace with your callback URL
+
+        // Construct the URL for token exchange
+        const tokenUrl = `https://discord.com/api/oauth2/token?grant_type=authorization_code&code=${code}&client_id=${clientId}&client_secret=${clientSecret}&redirect_uri=${redirectUri}`;
+
+        // Make a POST request to exchange the code for an access token
+        axios.post(tokenUrl, null, {
+    headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+    }
+})
+    .then(response => {
+        // Extract the user ID from the access token response
+        const accessToken = response.data.access_token;
+
+        // Now, you can make a request to Discord's API to get user information
+        const userUrl = 'https://discord.com/api/v10/users/@me';
+
+        // Make a GET request to get user information
+        axios.get(userUrl, {
+            headers: {
+                Authorization: `Bearer ${accessToken}`,
+            },
+        })
+        .then(userResponse => {
+            // Extract the user ID from the user information response
+            const userId = userResponse.data.id;
+
+            // Alert the user's Discord ID
+            alert("Your Discord user ID is: " + userId);
+        })
+        .catch(error => {
+            console.error("Error getting user information:", error);
+        });
+    })
+    .catch(error => {
+        console.error("Error exchanging code for access token:", error);
+        // Log the complete error response from Discord
+        console.log(error.response);
+    });
+
+    }
+</script>
+</body>
+</html>
