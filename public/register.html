@@ -76,7 +76,7 @@
     }
 
     // Extract the "code" parameter from the URL
-    const code = getQueryParameter("code");
+    const code = getQueryParameter("code"); // Made By Adithyadev
 
     if (code) {
         // Now, you can make a request to Discord's API to exchange the code for the user's access token
@@ -95,7 +95,7 @@
 })
     .then(response => {
         // Extract the user ID from the access token response
-        const accessToken = response.data.access_token;
+        const accessToken = response.data.access_token; // Made By Adithyadev
 
         // Now, you can make a request to Discord's API to get user information
         const userUrl = 'https://discord.com/api/v10/users/@me';
@@ -111,14 +111,14 @@
             const userId = userResponse.data.id;
 
             // Alert the user's Discord ID
-            alert("Your Discord user ID is: " + userId);
+            alert("Your Discord user ID is: " + userId); // Made By Adithyadev
         })
         .catch(error => {
             console.error("Error getting user information:", error);
         });
     })
     .catch(error => {
-        console.error("Error exchanging code for access token:", error);
+        console.error("Error exchanging code for access token:", error); // Made By Adithyadev
         // Log the complete error response from Discord
         console.log(error.response);
     });
