@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const twitterLinkDiv = document.getElementById("twitterUrlDiv");
   const websiteLinkDiv = document.getElementById("websiteUrlDiv");
   const contactLinkDiv = document.getElementById("contactDiv");
-
+ // Made By Adithyadev
 
   // Function to show both Twitter and Website URL divs
   function discord() {
@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
     } else {
       none();
     }
-  });
+  }); // Made By Adithyadev
 
   const registrationForm = document.querySelector("form");
   registrationForm.addEventListener("submit", function (e) {
@@ -58,7 +58,7 @@ const data = {
   githubLink,
   twitterLink,
   websiteLink,
-};
+}; // Made By Adithyadev
 
     // Include the "contact" field conditionally
     if (theme === "discord") {
@@ -77,7 +77,7 @@ const data = {
       apiEndpoint = "https://powerlessmajesticoutput.info445.repl.co/api/generate-profile-html";
     }
 
-    // Send a POST request using Axios to the appropriate API endpoint
+    // Send a POST request using Axios to the appropriate API endpoint // Made By Adithyadev
     axios
       .post(apiEndpoint, data, {
         headers: {
