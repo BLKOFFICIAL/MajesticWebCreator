@@ -4,17 +4,17 @@ const path = require('path');
 const bodyParser = require('body-parser');// Add body-parser middleware
 
 const app = express();
-const port = process.env.PORT || 6324;
+const port = process.env.PORT || 6324; // Made By Adithyadev
 const projectDirectory = __dirname; 
 const profileDirectory = '/profile';
 const profileFolder = 'profile';
 app.use(express.json());
 
 app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "*"); // Allow requests from any origin
+  res.setHeader("Access-Control-Allow-Origin", "*"); // Made By Adithyadev
   res.setHeader(
     "Access-Control-Allow-Methods",
-    "GET, POST, PUT, DELETE, OPTIONS"
+    "GET, POST, PUT, DELETE, OPTIONS" 
   ); // Allow specific HTTP methods
   res.setHeader(
     "Access-Control-Allow-Headers",
@@ -27,13 +27,13 @@ app.use((req, res, next) => {
 
 app.get('/', (req, res) => {
   res.sendFile(__dirname + '/public/index.html');
-});
+}); // Made By Adithyadev
 app.get('/register', (req, res) => {
   res.sendFile(__dirname + '/public/register.html');
-});
+}); // Made By Adithyadev
 app.get('/test', (req, res) => {
   res.sendFile(__dirname + '/public/test.html');
-});
+}); // Made By Adithyadev
 // Use body-parser middleware for parsing POST requests
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -52,7 +52,7 @@ app.get('/:filename', (req, res) => {
 
       // Define supported image and HTML file extensions
       const imageExtensions = ['.png', '.jpg', '.jpeg', '.gif', '.bmp'];
-      const htmlExtensions = ['.html', '.htm'];
+      const htmlExtensions = ['.html', '.htm']; // Made By Adithyadev
 
       if (imageExtensions.includes(fileExtension)) {
         // Serve images directly
@@ -74,7 +74,7 @@ app.get('/:filename', (req, res) => {
       }
     }
   });
-});
+}); // Made By Adithyadev // Made By Adithyadev
 
 
 app.get('/profile/:filename', (req, res) => {
@@ -113,15 +113,13 @@ app.get('/profile/:filename', (req, res) => {
   });
 });
 
-
+ // Made By Adithyadev
 
 
 // Serve the HTML form page
 app.get('/addhtml', (req, res) => {
   res.sendFile(path.join(__dirname, 'addhtml.html'));
-});
-
-// ... (previous code)
+}); // Made By Adithyadev
 
 app.post('/api/add-html', (req, res) => {
   // Get the HTML content and the specified filename from the form
@@ -129,7 +127,7 @@ app.post('/api/add-html', (req, res) => {
 
   if (!htmlContent) {
     return res.status(400).send('HTML content is missing.');
-  }
+  } // Made By Adithyadev
 
   // Generate a unique filename if one is not provided
   const customFilename = filename || `custom-${Date.now()}.html`;
@@ -148,7 +146,7 @@ app.post('/api/add-html', (req, res) => {
       res.status(200).send(`HTML content saved as '${sanitizedFilename}'.`);
     }
   });
-});
+}); // Made By Adithyadev
 
 app.post('/api/generate-profile-html', (req, res) => {
   // Extract profile information and button links from the request body
@@ -160,7 +158,7 @@ app.post('/api/generate-profile-html', (req, res) => {
     twitterLink,
     githubLink,
     websiteLink,
-  } = req.body;
+  } = req.body; // Made By Adithyadev
 
   // Debugging: Log received data to check if it's being correctly received
   console.log("name:", name);
@@ -231,7 +229,7 @@ if (!fs.existsSync(dataFilePath)) {
   fs.writeFileSync(dataFilePath, '{}');
 }
 
-const ejs = require('ejs');
+const ejs = require('ejs'); // Made By Adithyadev
 
 app.post('/api/generate-discord-html', (req, res) => {
   // Extract profile information and button links from the request body
@@ -438,7 +436,7 @@ app.post('/api/generate-discord-html', (req, res) => {
     </body>
 
 
-</html>`; 
+</html>`;  // Made By Adithyadev
 
   // Save the HTML content to the profile folder with the unique filename
   const filePath = path.join(profileFolder, filename);
@@ -456,11 +454,12 @@ app.post('/api/generate-discord-html', (req, res) => {
 
       // Update the data.json file with the new data
       fs.writeFileSync(dataFilePath, JSON.stringify(data, null, 2));
+      const responsee = config.server.url + "/profile/" + filename;
 
-      res.status(200).send(`https://delta.teamblk.xyz/profile/${filename}`);
+      res.status(200).send(responsee);
     }
   });
-});
+});  // Made By Adithyadev
 
 // Endpoint to remove a filename for a specific userId
 app.delete('/api/remove-profile/:userId/:filename', (req, res) => {
@@ -490,8 +489,6 @@ app.delete('/api/remove-profile/:userId/:filename', (req, res) => {
     res.status(404).send('File not found.');
   }
 });
-
-// ... (remaining code)
 
 
 
