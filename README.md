@@ -7,6 +7,9 @@ MajesticWebCreator is a powerful tool for creating stunning websites effortlessl
 ## Get Started
 
 ### Go On With Replit
+#### Import This Project And Make Start Command node index.js and edit config.json
+
+
 
 ### Go To Config.json And Edit It Also Put Auth Link In Index.html Too Then Run
 
