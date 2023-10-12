@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add HTML Page</title>
+    <link rel="stylesheet" type="text/css" href="/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Add HTML Content</h1>
+        <form action="/api/add-html" method="post">
+            <label for="htmlContent">HTML Content:</label><br>
+            <textarea id="htmlContent" name="htmlContent" rows="10" cols="40"></textarea><br>
+
+            <label for="filename">Filename (optional):</label><br>
+            <input type="text" id="filename" name="filename"><br>
+
+            <input type="submit" value="Add HTML">
+        </form>
+    </div>
+</body>
+</html>
