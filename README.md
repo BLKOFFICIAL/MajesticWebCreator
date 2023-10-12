@@ -1,4 +1,4 @@
-# MajesticWebCreator
+# MajesticWebCreator [Preview](https://delta.teamblk.xyz)
 
 ## Overview
 
